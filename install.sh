@@ -13,7 +13,7 @@ sudo apt update && sudo apt upgrade -y
 
 # Utils
 echo -e "\n ${GREEN}Installing utils...${WHITE}"
-sudo apt install -y vim libfuse2 cmake curl openjdk-17-jdk openjdk-17-jre net-tools
+sudo apt install -y vim libfuse2 cmake curl net-tools
 sudo apt install build-essential
 
 # Git
@@ -33,31 +33,14 @@ sudo apt update -y
 sudo apt install -y docker-ce
 sudo usermod -aG docker ${USER}
 
-# Node 18LTS
-echo -e "\n${GREEN}Installing node 18 lts...${WHITE}"
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+# Node 20LTS
+echo -e "\n${GREEN}Installing node 20 lts...${WHITE}"
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt-get install nodejs
 
 # Angular
 echo -e "\n${GREEN}Installing Angular...${WHITE}"
 npm install -g @angular/cli
-
-# OBS Studio
-echo -e "\n${GREEN}Installing OBS Studio...${WHITE}"
-sudo add-apt-repository ppa:obsproject/obs-studio -y
-sudo apt install obs-studio -y
-
-# Spotify
-echo -e "\n${GREEN}Installing Spotify...${WHITE}"
-curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt-get update && sudo apt-get install spotify-client
-
-# Chrome
-echo -e "\n${GREEN}Installing Chrome...${WHITE}"
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O ~/chrome.deb
-sudo dpkg -i ~/chrome.deb
-rm ~/chrome.deb
 
 # Fix time problem on dual boot
 echo -e "\n${GREEN}Fixing bual boot clock issue...${WHITE}"
